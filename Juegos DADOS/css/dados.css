@@ -1,0 +1,92 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Fondo claro */
+    color: #212529; /* Texto negro */
+}
+
+/* Contenedor de los dados */
+.dados-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px;
+}
+
+/* Contenedor adicional que envuelve cada dado (tarjeta) */
+.dado-container {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra visible en modo claro */
+}
+
+/* Estilo base para los dados */
+.dado {
+    width: 150px;
+    height: 150px;
+    background-color: #212529; /* Negro predeterminado */
+    border: 3px solid black; /* Bordes negros para modo claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: white; /* Puntos blancos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra estándar */
+    font-size: 3rem;
+    font-weight: bold;
+    animation: girarDado 1s ease-in-out;
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #212529; /* Fondo oscuro */
+        color: #f8f9fa; /* Texto claro */
+    }
+
+    .dado {
+        background-color: #f8f9fa; /* Blanco para los dados */
+        border: 3px solid white; /* Bordes blancos */
+        color: black; /* Puntos negros */
+        box-shadow: 0 6px 10px rgba(255, 255, 255, 0.2); /* Sombra en modo oscuro */
+    }
+
+    .dado-container {
+        box-shadow: 0 6px 10px rgba(255, 255, 255, 0.2); /* Sombra más visible */
+    }
+}
+
+/* Animación de los dados */
+@keyframes girarDado {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(1800deg); /* Hace girar el dado 5 veces */
+    }
+    100% {
+        transform: rotate(3600deg); /* Vuelve a la posición inicial */
+    }
+}
+
+/* Estilo responsivo */
+@media screen and (max-width: 768px) {
+    .dado {
+        width: 120px;
+        height: 120px;
+        font-size: 2.5rem;
+        animation: girarDado 0.8s ease-in-out;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .dado {
+        width: 150px;
+        height: 150px;
+        font-size: 3rem;
+    }
+}
